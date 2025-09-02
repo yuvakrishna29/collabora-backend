@@ -4,6 +4,7 @@ let express = require('express');
 let path = require('path');
 let logger = require('morgan');
 let bodyParser = require('body-parser');
+let cors = require('cors');
 let indexRouter = require('./routes/index');
 let wopiRouter = require('./routes/wopi');
 
@@ -13,6 +14,7 @@ const maxDocumentSize = '75mb';
 
 let app = express();
 
+app.use(cors());
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
